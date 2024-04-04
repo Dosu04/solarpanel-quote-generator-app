@@ -34,7 +34,6 @@ public class RegisterController {
     @PostMapping("/register")
     public String registerUser(@ModelAttribute("user") User user) {
 
-        // Fetch the "USER" role from the roles table
         Role userRole = roleRepo.findByName("user");
 
         if (userRole == null) {

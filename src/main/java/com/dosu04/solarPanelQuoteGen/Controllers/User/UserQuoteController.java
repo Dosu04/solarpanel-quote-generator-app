@@ -30,8 +30,6 @@ public class UserQuoteController {
         public String viewQuotes(Model model, Authentication authentication) {
             User user = (User) authentication.getPrincipal();
             List<Quote> quotes = quoteService.findQuotesByUser(user);
-
-            // Sort the quotes by creation date in descending order
             quotes.sort(Comparator.comparing(Quote::getCreatedAt).reversed());
 
 

@@ -27,7 +27,6 @@ public class UserService implements UserDetailsService {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             userRepo.save(user);
         } catch (Exception e) {
-            // Handle the exception, e.g., log or throw a custom exception
             throw new RuntimeException("Error registering user", e);
         }
     }

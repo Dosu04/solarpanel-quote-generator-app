@@ -15,7 +15,6 @@ public class Role {
     private String name;
 
 
-    // Override toString method
     @Override
     public String toString() {
         return name;

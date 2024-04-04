@@ -36,7 +36,6 @@ public class UserDashboardController {
         List<Quote> userQuotes = quoteService.findQuotesByUser(user);
         userQuotes.sort(Comparator.comparing(Quote::getCreatedAt).reversed());
 
-        // Filter the top 3 recent quotes
         List<Quote> recentQuotes = userQuotes.stream().limit(3).toList();
 
 
@@ -52,12 +51,9 @@ public class UserDashboardController {
     public String saveQuote(@ModelAttribute("quote") Quote quote, Authentication authentication) {
         User user = (User) authentication.getPrincipal();
 
-        // Set the user on the quote
         quote.setUser(user);
-        // Save the quote to the database
         quoteService.save(quote);
 
-        // Redirect or return a view based on your requirements
         return "redirect:/user";
     }
 

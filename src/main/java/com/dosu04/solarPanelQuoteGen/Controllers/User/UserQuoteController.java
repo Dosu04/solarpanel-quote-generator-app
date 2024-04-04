@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.Comparator;
 import java.util.List;
@@ -47,18 +48,7 @@ public class UserQuoteController {
 
         }
 
-    @GetMapping("/search-quote")
-    public String searchInboxMemos(@RequestParam("keyword") String keyword, Model model, Authentication authentication) {
 
-        User user = (User) authentication.getPrincipal();
-
-        List<Quote> quotes = quoteService.searchQuotes(keyword);
-
-        quotes.sort(Comparator.comparing(Quote::getCreatedAt).reversed());
-
-        model.addAttribute("quotes", quotes);
-        return "lecturer/inbox";
-    }
 
     }
 

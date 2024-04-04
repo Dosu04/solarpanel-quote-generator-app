@@ -5,6 +5,7 @@ import com.dosu04.solarPanelQuoteGen.models.Quote;
 import com.dosu04.solarPanelQuoteGen.models.User;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -33,6 +34,5 @@ public class QuoteService {
         quoteRepo.deleteById(id);
     }
 
-    public List<Quote> searchQuotes(String keyword) {
-    }
+
 }
